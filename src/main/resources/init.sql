@@ -4,6 +4,7 @@ CREATE TABLE user (
   account FLOAT NOT NULL DEFAULT 0.0,
   title VARCHAR(200) ,
   title_create_date DATE ,
+  state VARCHAR(20) NOT NULL DEFAULT 'START',
   PRIMARY KEY (`wxid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
