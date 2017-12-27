@@ -20,6 +20,9 @@ public interface UserMapper {
     })
     User getOne(String wxid);
 
-    @Insert({"INSERT INTO user VALUES(#{wxid}, #{name},0,#{title},#{titleCreateDate},#{state})"})
-    void insert(User user);
+    @Insert({"UPDATE  user title = #{title} , title_create_date = #{titleCreateDate},state = 'PROCESS' where wxid = #{wxid} "})
+    void process(User user);
+
+    @Insert({"INSERT INTO user(wxid,name,account,state) VALUES(#{wxid}, #{name},0,'START')"})
+    void init(User user);
 }
